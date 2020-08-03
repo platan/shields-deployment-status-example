@@ -3,6 +3,10 @@ const core = require('@actions/core');
 
 async function run() {
     const context = github.context;
+    console.log(JSON.stringify(context, null, 2));
+    
+    const pull_request = context.payload.pull_request;
+    const repository = pull_request.repository;
     
     if (context.eventName === 'pull_request'/* && context.payload.action == 'closed'*/) {
         const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
@@ -15,7 +19,7 @@ async function run() {
         console.log(result);
     }
     
-    console.log(JSON.stringify(context, null, 2));
+    
 }
 
 run();

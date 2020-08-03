@@ -12,7 +12,7 @@ async function run() {
         // && pull_request.head.ref.slice(0, 11) !== 'dependabot/'
         // && pull_request.base.ref === 'master'
         const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
-        const result = await octokit.issues.createComment({
+        return octokit.issues.createComment({
           owner: repository.owner.login,
           repo: repository.name,
           issue_number: /*pull_request.number*/ 12313123,
@@ -20,7 +20,6 @@ async function run() {
 
 After deployment, changes are copied to [gh-pages](${repository.html_url}/tree/gh-pages) branch: ![](https://img.shields.io/github/commit-status/${repository.full_name}/gh-pages/${pull_request.merge_commit_sha}.svg?label=deploy%20status)`,
         });
-        console.log(result);
     }
     
     

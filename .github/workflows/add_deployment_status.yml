@@ -4,8 +4,8 @@ name: add deployment status
 on:
   pull_request:
     types: [closed, opened]
-  push:
-    branches: [master]
+#   push:
+#     branches: [master]
 
 jobs:
   add_deployment_status:

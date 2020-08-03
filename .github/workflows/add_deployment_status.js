@@ -11,7 +11,7 @@ async function run() {
         const result = await octokit.issues.createComment({
           owner: context.repository.owner.login,
           repo: context.repository.name,
-          issue_number: context._pull_request.number,
+          issue_number: context.pull_request.number,
           body: 'test 1',
         });
         console.log(result);

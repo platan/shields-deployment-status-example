@@ -12,7 +12,7 @@ async function run() {
           owner: context.repository.owner.name,
           repo: context.repository.name,
           issue_number: context._pull_request.number,
-          'test 1',
+          bodyL 'test 1',
         });
     }
 }

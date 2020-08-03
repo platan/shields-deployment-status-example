@@ -7,9 +7,9 @@ async function run() {
     if (context.eventName === 'pull_request'/* && context.payload.action == 'closed'*/) {
         const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
         const result = await octokit.issues.createComment({
-          owner: context.pull_request.repository.owner.login,
-          repo: context.pull_request.repository.name,
-          issue_number: context.pull_request.number,
+          owner: context.payload.pull_request.repository.owner.login,
+          repo: context.payload.pull_request.repository.name,
+          issue_number: context.payload.pull_request.number,
           body: 'test 1',
         });
         console.log(result);

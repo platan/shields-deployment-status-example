@@ -18,3 +18,5 @@ jobs:
           node-version: '14'
     - run: npm install @actions/core @actions/github
     - run: node .github/workflows/add_deployment_status.js
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

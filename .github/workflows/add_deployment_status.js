@@ -3,7 +3,7 @@ const core = require('@actions/core');
 
 async function run() {
     const context = github.context;
-    console.log(JSON.stringity(context));
+    console.log(JSON.stringify(context));
     
     
     if (context.eventName === 'pull_request'/* && context.payload.action == 'closed'*/) {

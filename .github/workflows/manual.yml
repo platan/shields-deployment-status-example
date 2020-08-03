@@ -1,0 +1,21 @@
+name: deployment status
+
+
+on:
+  pull_request:
+    types: [opened]
+  push:
+    branches:
+    - main
+  workflow_dispatch: {}
+
+jobs:
+  add_status:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+          node-version: '12'
+    - run: node --version

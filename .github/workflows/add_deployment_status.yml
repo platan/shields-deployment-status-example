@@ -1,15 +1,15 @@
-name: deployment status
+name: add deployment status
 
 
 on:
-  pull_request:
-    types: [opened]
+#   pull_request:
+#     types: [opened]
   push:
     branches:
     - main
 
 jobs:
-  add_status:
+  add_deployment_status:
     runs-on: ubuntu-latest
 
     steps:

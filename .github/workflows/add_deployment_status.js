@@ -3,7 +3,12 @@ const core = require('@actions/core');
 
 async function run() {
     const context = github.context;
-    console.log(JSON.stringify(context, null, 2));
+//     console.log(JSON.stringify(context, null, 2));
+    console.log(JSON.stringify(context.payload, null, 2));
+    console.log(JSON.stringify(context.payload.pull_request, null, 2));
+    console.log(JSON.stringify(context.payload.pull_request.repository, null, 2));
+    console.log('owner');
+    console.log(JSON.stringify(context.payload.pull_request.repository.owner, null, 2));
     
     const pull_request = context.payload.pull_request;
     const repository = pull_request.repository;

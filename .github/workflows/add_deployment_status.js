@@ -5,7 +5,7 @@ async function run() {
     const context = github.context;
     
     const pull_request = context.payload.pull_request;
-    const repository = context.payload.repository.repository;
+    const repository = context.payload.repository;
     
     if (context.eventName === 'pull_request'/* && context.payload.action == 'closed'*/) {
         const octokit = github.getOctokit(process.env.GITHUB_TOKEN);

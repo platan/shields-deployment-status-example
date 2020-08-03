@@ -5,8 +5,7 @@ on:
 #   pull_request:
 #     types: [opened]
   push:
-    branches:
-    - main
+    branches: [main]
 
 jobs:
   add_deployment_status:

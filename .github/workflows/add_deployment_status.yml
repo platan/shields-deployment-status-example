@@ -19,8 +19,10 @@ jobs:
 #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Create comment
-      if: ${{ github.event_name == 'pull_request' 
-        && github.event.action == 'closed' }}
+      if: ${{ github.event_name == 'pull_request'
+        && github.event.action == 'closed'
+        && github.event.pull_request.head.ref.slice(0, 11) != 'dependabot/'
+        && github.event.pull_request.base.ref == 'master' }}
       uses: peter-evans/create-or-update-comment@v1
       with:
         issue-number: ${{ github.event.pull_request.number }}

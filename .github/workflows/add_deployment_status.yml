@@ -14,7 +14,9 @@ jobs:
         && github.event.pull_request.merged
         && !startsWith(github.event.pull_request.head.ref, 'dependabot/')
         && github.event.pull_request.base.ref == 'master' }}
-      uses: peter-evans/create-or-update-comment@v1
+#       From a security perspective it's good practice to reference the commit hash
+#       https://github.com/peter-evans/create-pull-request/blob/master/docs/concepts-guidelines.md#security
+      uses: peter-evans/create-or-update-comment@41f3207a84f33bd70388036109082784d059dcaa
       with:
         issue-number: ${{ github.event.pull_request.number }}
         edit-mode: replace

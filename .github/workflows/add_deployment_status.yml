@@ -21,7 +21,7 @@ jobs:
     - name: Create comment
       if: ${{ github.event_name == 'pull_request'
         && github.event.action == 'closed'
-        && startsWith(github.event.pull_request.head.ref, 'dependabot/')
+        && !startsWith(github.event.pull_request.head.ref, 'dependabot/')
         && github.event.pull_request.base.ref == 'master' }}
       uses: peter-evans/create-or-update-comment@v1
       with:

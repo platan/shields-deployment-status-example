@@ -23,7 +23,7 @@ jobs:
       uses: peter-evans/create-or-update-comment@v1
       with:
         issue-number: ${{ github.event.pull_request.number }}
-        edit-mode: replace
+#         edit-mode: replace
         body: |
           This pull request was merged to [${{ github.event.pull_request.base.ref }}](${{ github.event.repository.html_url }}/tree/${{ github.event.pull_request.base.ref }}) branch. This change is now waiting for deployment, which will usually happen within a few days. Stay tuned by joining our \`#ops\` channel on [Discord](https://discordapp.com/invite/HjJCwm5)!
           

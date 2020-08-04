@@ -17,7 +17,7 @@ jobs:
 #     - run: node .github/workflows/add_deployment_status.js
 #       env:
 #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - run: ${{ toJson(github.event) }}
+    - run: echo ${{ toJson(github.event) }}
     - name: Create comment
 #       if: ${{ github.event_name == 'pull_request' && github.event.action == 'opened' }}
       uses: peter-evans/create-or-update-comment@v1

@@ -8,9 +8,9 @@ async function run() {
         const pull_request = context.payload.pull_request;
         const repository = context.payload.repository;
         
-        core.info(JSON.stringify(pull_request));
+        core.info(JSON.stringify(context));
 
-        if (context.eventName === 'pull_request' 
+        if (context.eventName === 'pull_request_target' 
             && context.payload.action == 'closed'
             && pull_request.merged
             && pull_request.head.ref.slice(0, 11) !== 'dependabot/'

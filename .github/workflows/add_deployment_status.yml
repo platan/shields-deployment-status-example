@@ -1,7 +1,7 @@
 name: add deployment status
 
 on:
-  pull_request:
+  pull_request_target:
     types: [closed]
 
 jobs:
@@ -10,14 +10,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-#     - uses: tibdex/github-app-token@v1
-#       id: generate-token
-#       with:
-#         app_id: ${{ secrets.APP_ID }}
-#         private_key: ${{ secrets.APP_PRIVATE_KEY }}
-
     - name: Create comment
-      if: ${{ github.event_name == 'pull_request'
+      if: ${{ github.event_name == 'pull_request_target'
         && github.event.action == 'closed'
         && github.event.pull_request.merged
         && !startsWith(github.event.pull_request.head.ref, 'dependabot/')
@@ -26,8 +20,6 @@ jobs:
 #       https://github.com/peter-evans/create-pull-request/blob/master/docs/concepts-guidelines.md#security
       uses: peter-evans/create-or-update-comment@41f3207a84f33bd70388036109082784d059dcaa
       with:
-#         token: ${{ steps.generate-token.outputs.token }}
-        token: ${{ secrets.PAT }}
         issue-number: ${{ github.event.pull_request.number }}
         edit-mode: replace
         body: |

@@ -7,6 +7,8 @@ async function run() {
 
         const pull_request = context.payload.pull_request;
         const repository = context.payload.repository;
+        
+        core.info(JSON.stringify(pull_request));
 
         if (context.eventName === 'pull_request' 
             && context.payload.action == 'closed'
